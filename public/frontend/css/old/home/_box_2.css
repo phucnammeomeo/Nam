@@ -1,0 +1,29 @@
+
+.info-home  .img-thumbnail img{
+    height: 500px;
+    object-fit: cover;
+    width: 100%;
+  
+}
+.info-home  .img-thumbnail:after {
+    content: '';
+    position: absolute;
+    width: 89%;
+    height: 200px;
+    background: #2f2f98;
+    bottom: -30px;
+    border-radius: 10px;
+    left: -30px;
+    z-index: -1;
+}
+.info-home .img-thumbnail{
+    overflow: inherit!important;
+}
+@media only screen and (max-width: 736px) {
+    .info-home .img-thumbnail img{
+        height: auto;
+    }
+    .info-home .img-thumbnail:after{
+        display: none;
+    }
+}

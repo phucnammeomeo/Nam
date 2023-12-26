@@ -1,0 +1,170 @@
+<?php $__env->startSection('title'); ?>
+<title>Danh sách Tỉnh/Thành phố</title>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('breadcrumb'); ?>
+<?php
+$array = array(
+    [
+        "title" => "Cấu hình",
+        "src" => route('generals.index'),
+    ],
+    [
+        "title" => "Danh sách vận chuyển",
+        "src" => route('ships.index'),
+    ],
+    [
+        "title" => "Danh sách Tỉnh/Thành phố",
+        "src" => 'javascript:void(0)',
+    ]
+);
+echo breadcrumb_backend($array);
+?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+<div class="content">
+
+    <div>
+        <div class="grid grid-cols-12 gap-6 mt-5">
+            <!-- BEGIN: Data List -->
+            <div class=" col-span-12 overflow-auto lg:overflow-visible">
+                <div class="flex justify-between items-center">
+                    <div class="">
+                        <h2 class=" text-lg font-medium">Danh sách Tỉnh/Thành phố</h2>
+                    </div>
+
+                </div>
+                <div class=" grid grid-cols-12 gap-2 justify-between  mt-5 mb-5">
+                    <input type="search" name="keyword" class="form-control col-span-4 js_price" placeholder="Giá vận chuyển" autocomplete="off" value="">
+                    <button type="submit" class="btn btn-primary shadow-md mr-2 col-span-2 js_update_all">Cập nhập</button>
+                </div>
+                <table class="table table-report -mt-2">
+                    <thead>
+                        <tr>
+                            <th style="width:40px;">
+                                <input type="checkbox" id="checkbox-all">
+                            </th>
+                            <th class="whitespace-nowrap text-left">Tên</th>
+                            <th class="whitespace-nowrap text-left">Giá vận chuyển</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <tr class="odd " id="post-<?php echo $v->id; ?>">
+                            <td>
+                                <input type="checkbox" name="checkbox[]" value="<?php echo $v->id; ?>" class="checkbox-item">
+                            </td>
+                            <td style="text-align: left;">
+                                <?php echo $v->name; ?>
+                            </td>
+                            <td class="text-left">
+                                <input class="form-control js_update_price" data-id="<?php echo $v->id; ?>" name="price[<?php echo $v->id; ?>]" type="text" value="<?php echo $v->price ?>">
+                            </td>
+                            <td>
+                                <a class="flex items-center mr-3" href="<?php echo e(route('ships.edit_province',['id'=>$v->id])); ?>" style="justify-content: right">
+                                    <i data-lucide="check-square" class="w-4 h-4 mr-1"></i>
+                                    Edit
+                                </a>
+                            </td>
+                        </tr>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startPush('javascript'); ?>
+<script type="text/javascript">
+    $(document).on("change", ".js_update_price", function() {
+        let _this = $(this);
+        $.ajax({
+            type: 'POST',
+            url: BASE_URL_AJAX + "ships/update-one-province",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {
+                id: _this.attr("data-id"),
+                price: _this.val(),
+            },
+            success: function(data) {}
+        });
+        return false;
+    });
+    $(document).on('click', '.js_update_all', function() {
+        let _this = $(this);
+        let id_checked = []; /*Lấy id bản ghi */
+        $('.checkbox-item:checked').each(function() {
+            id_checked.push($(this).val());
+        });
+        if (id_checked.length <= 0) {
+            swal({
+                title: "Có vấn đề xảy ra",
+                text: "Bạn phải chọn ít nhất 1 bản ghi để thực hiện chức năng này",
+                type: "error"
+            }, function() {
+                location.reload();
+            });
+            return false;
+        }
+        swal({
+                title: "Hãy chắc chắn rằng bạn muốn thực hiện thao tác này?",
+                text: '',
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Thực hiện!",
+                cancelButtonText: "Hủy bỏ!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function(isConfirm) {
+                if (isConfirm) {
+                    $.ajax({
+                        type: 'POST',
+                        url: BASE_URL_AJAX + "ships/update-all-province",
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        data: {
+                            'price': $('.js_price').val(),
+                            'list': id_checked,
+                        },
+                        success: function(data) {
+                            if (data.code == 200) {
+                                swal({
+                                    title: "Cập nhập thành công!",
+                                    text: "Các bản ghi đã được cập nhập.",
+                                    type: "success"
+                                }, function() {
+                                    location.reload();
+                                });
+                            } else {
+                                swal({
+                                    title: "Có vấn đề xảy ra",
+                                    text: "Vui lòng thử lại",
+                                    type: "error"
+                                }, function() {
+                                    location.reload();
+                                });
+                            }
+                        }
+                    });
+                } else {
+                    swal({
+                        title: "Hủy bỏ",
+                        text: "Thao tác bị hủy bỏ",
+                        type: "error"
+                    }, function() {
+                        location.reload();
+                    });
+                }
+            });
+    });
+</script>
+<?php $__env->stopPush(); ?>
+<?php echo $__env->make('dashboard.layout.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/khangdien3/domains/khangdien.tamphat.edu.vn/public_html/resources/views/ship/backend/indexProvince.blade.php ENDPATH**/ ?>

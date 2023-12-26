@@ -1,0 +1,11 @@
+
+
+.logo-footer{
+    width: 135px;
+}
+@media only screen and (max-width: 1024px){
+    footer{
+        padding: 0;
+        padding-top: 30px;
+    }
+}

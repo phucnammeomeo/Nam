@@ -1,0 +1,1694 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TailwindCSS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css"
+    />
+    <!-- <link rel="stylesheet" href="fonts/font.css"> -->
+    <link rel="stylesheet" href="build/tailwind.css" />
+    <link rel="stylesheet" href="build/app.css" />
+
+    <link rel="stylesheet" href="css/owl.theme.default.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/_header.css" />
+    <link rel="stylesheet" href="css/_footer.css" />
+
+    <link rel="stylesheet" href="css/home/_box_1.css" />
+    <link rel="stylesheet" href="css/home/_box_2.css" />
+    <link rel="stylesheet" href="css/home/_box_3.css" />
+    <link rel="stylesheet" href="css/home/_box_4.css" />
+    <link rel="stylesheet" href="css/home/_box_5.css" />
+    <link rel="stylesheet" href="css/home/_box_6.css" />
+    <link rel="stylesheet" href="css/home/_box_7.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+  </head>
+  <!-- npx tailwindcss -i css/tailwind.css -o build/tailwind.css --watch -->
+  <body>
+    <header class="hidden md:block">
+      <div class="top-header bg-Pimary_color">
+        <div class="container mx-auto px-3">
+          <div class="flex flex-wrap justify-between mx-[-5px]">
+            <div class="w-1/5 px-[5px]"></div>
+            <div class="w-4/5 px-[5px]">
+              <div class="flex flex-wrap justify-between mx-[-5px]">
+                <div class="w-1/4 px-[5px]">
+                  <div class="main-logo">
+                    <a href=""><img src="img/logo.png" alt="" /></a>
+                  </div>
+                </div>
+                <div class="w-2/4 px-[5px]">
+                  <div class="main-search">
+                    <form
+                      action=""
+                      class="relative inline-block w-full mt-[4px]"
+                    >
+                      <input
+                        type="text"
+                        placeholder="Bạn tìm gì..."
+                        style="height: 35px"
+                        class="text-f14 border border-gray-100 rounded-[5px] w-full"
+                      />
+                      <button class="absolute top-[6px] right-[13px]">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+                <div class="w-1/4 px-[5px]">
+                  <div
+                    class="cart-header flex flex-wrap justify-end items-center h-full"
+                  >
+                    <span class="text-f12 text-white inline-block mr-[15px]"
+                      >Đơn hàng<br />của bạn</span
+                    >
+                    <a
+                      href=""
+                      class="text-f14 text-white px-[20px] flex items-center"
+                      style="background: #e5764e; height: 100%"
+                    >
+                      <span class="cart relative inline-block w-[45px]">
+                        <i
+                          class="fa-solid fa-cart-shopping text-f20 mr-[5px]"
+                        ></i>
+                        <span
+                          class="stt w-[20px] h-[20px] bg-red rounded-full text-white text-f12 inline-block text-center leading-[20px] top-[-7px] left-[19px] absolute"
+                          >10</span
+                        > </span
+                      >Giỏ hàng</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Modal toggle -->
+
+    <header class="block md:hidden header-mobile">
+      <div class="relative flex justify-center px-2 py-[10px] header-22">
+        <style>
+          /* Micro Clearfix */
+          .cf:before,
+          .cf:after {
+            content: "";
+            display: table;
+            visibility: hidden;
+          }
+          .cf:after {
+            clear: both;
+          }
+          .cf {
+            *zoom: 1;
+          }
+          .wrap {
+            text-align: center;
+          }
+
+          .menu li {
+            float: left;
+            margin-right: 10px;
+            position: relative;
+          }
+          .menu li:last-child {
+            margin-right: 0;
+          }
+          .menu .sub-menu li {
+            width: 100%;
+          }
+          .menu li a {
+            display: block;
+            text-decoration: none;
+          }
+          #top-nav li a {
+            color: rgba(51, 51, 51, 0.9);
+            padding: 5px 0;
+          }
+          #top-nav .sub-menu {
+            background: #fff;
+          }
+          #top-nav .sub-menu li a {
+            padding: 5px;
+          }
+          #top-nav .sub-menu li > a:hover,
+          #top-nav .sub-menu li.selected > a {
+            background: #000f1d;
+            color: #fff;
+          }
+          #primary-nav li a {
+            color: #fff;
+            padding: 10px;
+          }
+          #primary-nav li.active > a,
+          #primary-nav li > a:hover,
+          #primary-nav li.selected > a {
+            background: #000f1d;
+            color: #fff;
+          }
+          .downarrow {
+            background: none;
+            display: inline-block;
+            padding: 0;
+            text-align: center;
+            min-width: 3px;
+          }
+          .sub-menu .downarrow {
+            position: absolute;
+            right: 0;
+            padding-right: 10px;
+          }
+          .downarrow:before {
+            content: "\25be";
+            color: inherit;
+            display: block;
+            font-family: sans-serif;
+            font-size: 1em;
+            line-height: 1.1;
+            width: 1em;
+            height: 1em;
+          }
+          .menu .sub-menu {
+            display: none;
+            position: absolute;
+            left: 0;
+            max-height: 1000px;
+          }
+          .menu .sub-menu.hide {
+            display: none;
+          }
+          #primary-nav .sub-menu {
+            background: #000f1d;
+            min-width: 150px;
+            z-index: 200;
+          }
+          #primary-nav.mobile ul {
+            width: 100%;
+          }
+          #primary-nav .sub-menu li {
+            border-bottom: 1px solid rgba(51, 51, 51, 0.9);
+          }
+          #primary-nav .sub-menu li:last-child {
+            border-bottom: 0;
+          }
+          #primary-nav .sub-menu .downarrow:before {
+            content: "\25b8";
+          }
+          #primary-nav.mobile {
+            display: none;
+            position: absolute;
+            top: 100%;
+            background: #000f1d;
+            width: 100%;
+            z-index: 999;
+          }
+          #primary-nav.mobile li {
+            width: 100%;
+            margin: 0;
+            border-bottom: 1px solid rgba(51, 51, 51, 0.9);
+          }
+          #primary-nav.mobile li.selected > a {
+            border-bottom: 1px solid rgba(51, 51, 51, 0.9);
+          }
+          #primary-nav.mobile li:last-child {
+            border: none;
+          }
+          #primary-nav.mobile li a {
+            padding: 5%;
+          }
+          #primary-nav.mobile .sub-menu li a {
+            padding-left: 7%;
+          }
+          #primary-nav.mobile .sub-menu .submenu li a {
+            padding-left: 9%;
+          }
+          #primary-nav.mobile .sub-menu .sub-menu .sub-menu li a {
+            padding-left: 11%;
+          }
+          #primary-nav.mobile .sub-menu {
+            float: left;
+            position: relative;
+            width: 100%;
+          }
+          .mobile .downarrow,
+          .mobile .sub-menu .downarrow {
+            position: absolute;
+            right: 0;
+            padding-right: 5%;
+          }
+          #primary-nav.mobile .sub-menu .downarrow:before {
+            content: "\25be";
+          }
+          #primary-nav-button.mobile {
+            display: inline-block;
+          }
+        </style>
+
+        <div class="w-full text-center">
+          <button
+            id="primary-nav-button"
+            type="button"
+            class="mobile float-right mt-[13px]"
+          >
+            <span><i class="fa-solid fa-bars"></i></span>
+          </button>
+          <a href="" class="logo"
+            ><img src="img/logo.png" alt="" class="inline-block"
+          /></a>
+        </div>
+        <div class="absolute top-0 right-[10px]">
+          <div class="right-header">
+            <ul class="flex lg:flex-grow space-x-4 float-right">
+              <li class="relative">
+                <a class="cursor-pointer click-search">
+                  <img src="img/search.webp" alt="" class="w-[25px]" />
+                </a>
+                <div
+                  class="nav-search absolute top-[33px] right-0"
+                  style="display: none"
+                >
+                  <form action="" class="relative">
+                    <input type="text" placeholder="Tìm kiếm" />
+                  </form>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <nav id="primary-nav" class="dropdown cf mobile" style="display: none">
+          <ul class="dropdown menu">
+            <li>
+              <a href="">Trang chủ<span class="downarrow"></span></a>
+              <ul class="sub-menu">
+                <li><a href="">Thời trang bé gái</a></li>
+                <li><a href="">BST Econice</a></li>
+                <li><a href="">Thời trang bé trai</a></li>
+                <li><a href="">BST Unifriend</a></li>
+              </ul>
+            </li>
+            <li><a href="">Thời trang bé trai</a></li>
+            <li><a href="">Thời trang bé gái</a></li>
+            <li><a href="">Giới thiệu Unifriend</a></li>
+            <li><a href="">BST Unifriend</a></li>
+            <li><a href="">BST Econice</a></li>
+          </ul>
+        </nav>
+        <!-- / #primary-nav -->
+      </div>
+    </header>
+
+    <div id="main" class="sitemap main-new-detail">
+      <div class="main-content">
+        <div class="container mx-auto px-3">
+          <div class="flex flex-wrap justify-between mx-[-5px]">
+            <div class="w-1/5 px-[5px] hidden lg:block">
+              <aside class="sidebar mt-[-37px] scrollbar" id="style-1">
+                <div class="force-overflow">
+                  <div class="item-sb bg-white">
+                    <h3
+                      class="text-f15 uppercase bg-gray-100 py-[8px] px-[15px]"
+                      style="border-radius: 5px 5px 0 0"
+                    >
+                      <i class="fa-solid fa-bars mr-[8px]"></i>Danh mục sản phẩm
+                    </h3>
+                    <div class="py-[10px]">
+                      <div class="acc__card border-gray-100">
+                        <div class="acc__title text-f15 font-bold">
+                          Thịt, cá, trứng, hải sản
+                        </div>
+                        <div class="acc__panel pl-[20px]">
+                          <ul>
+                            <li class="mb-[5px]">
+                              <a
+                                href=""
+                                class="hover:text-Pimary_color transition-all"
+                              >
+                                Thịt các loại
+                              </a>
+                            </li>
+                            <li class="mb-[5px]">
+                              <a
+                                href=""
+                                class="hover:text-Pimary_color transition-all"
+                              >
+                                Cá, hải sản
+                              </a>
+                            </li>
+                            <li class="mb-[5px]">
+                              <a
+                                href=""
+                                class="hover:text-Pimary_color transition-all"
+                              >
+                                Trứng gà, vịt, cút
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="acc__card border-gray-100">
+                        <div class="acc__title text-f15 font-bold">
+                          Rau, củ, trái cây
+                        </div>
+                        <div class="acc__panel pl-[20px]">
+                          <ul>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="acc__card border-gray-100">
+                        <div class="acc__title text-f15 font-bold">
+                          Dầu ăn, nước chấm, gia vị
+                        </div>
+                        <div class="acc__panel pl-[20px]">
+                          <ul>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="acc__card border-gray-100">
+                        <div class="acc__title text-f15 font-bold">
+                          Thịt, cá, trứng, hải sản
+                        </div>
+                        <div class="acc__panel pl-[20px]">
+                          <ul>
+                            <li class="mb-[5px]">
+                              <a
+                                href=""
+                                class="hover:text-Pimary_color transition-all"
+                              >
+                                Thịt các loại
+                              </a>
+                            </li>
+                            <li class="mb-[5px]">
+                              <a
+                                href=""
+                                class="hover:text-Pimary_color transition-all"
+                              >
+                                Cá, hải sản
+                              </a>
+                            </li>
+                            <li class="mb-[5px]">
+                              <a
+                                href=""
+                                class="hover:text-Pimary_color transition-all"
+                              >
+                                Trứng gà, vịt, cút
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="acc__card border-gray-100">
+                        <div class="acc__title text-f15 font-bold">
+                          Rau, củ, trái cây
+                        </div>
+                        <div class="acc__panel pl-[20px]">
+                          <ul>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="acc__card border-gray-100">
+                        <div class="acc__title text-f15 font-bold">
+                          Dầu ăn, nước chấm, gia vị
+                        </div>
+                        <div class="acc__panel pl-[20px]">
+                          <ul>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="acc__card border-gray-100">
+                        <div class="acc__title text-f15 font-bold">
+                          Thịt, cá, trứng, hải sản
+                        </div>
+                        <div class="acc__panel pl-[20px]">
+                          <ul>
+                            <li class="mb-[5px]">
+                              <a
+                                href=""
+                                class="hover:text-Pimary_color transition-all"
+                              >
+                                Thịt các loại
+                              </a>
+                            </li>
+                            <li class="mb-[5px]">
+                              <a
+                                href=""
+                                class="hover:text-Pimary_color transition-all"
+                              >
+                                Cá, hải sản
+                              </a>
+                            </li>
+                            <li class="mb-[5px]">
+                              <a
+                                href=""
+                                class="hover:text-Pimary_color transition-all"
+                              >
+                                Trứng gà, vịt, cút
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="acc__card border-gray-100">
+                        <div class="acc__title text-f15 font-bold">
+                          Rau, củ, trái cây
+                        </div>
+                        <div class="acc__panel pl-[20px]">
+                          <ul>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="acc__card border-gray-100">
+                        <div class="acc__title text-f15 font-bold">
+                          Dầu ăn, nước chấm, gia vị
+                        </div>
+                        <div class="acc__panel pl-[20px]">
+                          <ul>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="acc__card border-gray-100">
+                        <div class="acc__title text-f15 font-bold">
+                          Thịt, cá, trứng, hải sản
+                        </div>
+                        <div class="acc__panel pl-[20px]">
+                          <ul>
+                            <li class="mb-[5px]">
+                              <a
+                                href=""
+                                class="hover:text-Pimary_color transition-all"
+                              >
+                                Thịt các loại
+                              </a>
+                            </li>
+                            <li class="mb-[5px]">
+                              <a
+                                href=""
+                                class="hover:text-Pimary_color transition-all"
+                              >
+                                Cá, hải sản
+                              </a>
+                            </li>
+                            <li class="mb-[5px]">
+                              <a
+                                href=""
+                                class="hover:text-Pimary_color transition-all"
+                              >
+                                Trứng gà, vịt, cút
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="acc__card border-gray-100">
+                        <div class="acc__title text-f15 font-bold">
+                          Rau, củ, trái cây
+                        </div>
+                        <div class="acc__panel pl-[20px]">
+                          <ul>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="acc__card border-gray-100">
+                        <div class="acc__title text-f15 font-bold">
+                          Dầu ăn, nước chấm, gia vị
+                        </div>
+                        <div class="acc__panel pl-[20px]">
+                          <ul>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="acc__card border-gray-100">
+                        <div class="acc__title text-f15 font-bold">
+                          Thịt, cá, trứng, hải sản
+                        </div>
+                        <div class="acc__panel pl-[20px]">
+                          <ul>
+                            <li class="mb-[5px]">
+                              <a
+                                href=""
+                                class="hover:text-Pimary_color transition-all"
+                              >
+                                Thịt các loại
+                              </a>
+                            </li>
+                            <li class="mb-[5px]">
+                              <a
+                                href=""
+                                class="hover:text-Pimary_color transition-all"
+                              >
+                                Cá, hải sản
+                              </a>
+                            </li>
+                            <li class="mb-[5px]">
+                              <a
+                                href=""
+                                class="hover:text-Pimary_color transition-all"
+                              >
+                                Trứng gà, vịt, cút
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="acc__card border-gray-100">
+                        <div class="acc__title text-f15 font-bold">
+                          Dầu ăn, nước chấm, gia vị
+                        </div>
+                        <div class="acc__panel pl-[20px]">
+                          <ul>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="acc__card border-gray-100">
+                        <div class="acc__title text-f15 font-bold">
+                          Dầu ăn, nước chấm, gia vị
+                        </div>
+                        <div class="acc__panel pl-[20px]">
+                          <ul>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="acc__card border-gray-100">
+                        <div class="acc__title text-f15 font-bold">
+                          Dầu ăn, nước chấm, gia vị
+                        </div>
+                        <div class="acc__panel pl-[20px]">
+                          <ul>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="acc__card border-gray-100">
+                        <div class="acc__title text-f15 font-bold">
+                          Dầu ăn, nước chấm, gia vị
+                        </div>
+                        <div class="acc__panel pl-[20px]">
+                          <ul>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="acc__card border-gray-100">
+                        <div class="acc__title text-f15 font-bold">
+                          Dầu ăn, nước chấm, gia vị
+                        </div>
+                        <div class="acc__panel pl-[20px]">
+                          <ul>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="acc__card border-gray-100">
+                        <div class="acc__title text-f15 font-bold">
+                          Dầu ăn, nước chấm, gia vị
+                        </div>
+                        <div class="acc__panel pl-[20px]">
+                          <ul>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                            <li class="mb-[5px]">
+                              <a href="" class="hover:text-Pimary_color transition-all"
+                                >Tủ dụng cụ CSPS</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </aside>
+            </div>
+            <div class="w-full lg:w-4/5 px-[5px]">
+              <div class="content-right">
+                <div class="main-menu-pr bg-white hidden lg:block">
+                  <div class="main-menu">
+                    <ul
+                      class="flex lg:flex-grow md:space-x-0 lg:space-x-4 flex-wrap"
+                    >
+                      <li class="group relative">
+                        <a
+                          href=""
+                          class="inline-block px-[5px] lg:px-[8px] py-[10px] text-f15 transition-all hover:text-Pimary_color uppercase"
+                        >
+                          Giới Thiệu
+                        </a>
+                      </li>
+                      <li class="group relative">
+                        <a
+                          href=""
+                          class="inline-block px-[5px] lg:px-[8px] py-[10px] text-f15 transition-all hover:text-Pimary_color uppercase"
+                        >
+                          <span class="lg:mt-0 hover:text-blue003">
+                            Sản phẩm
+                            <span class="text-f11 ml-[5px]"
+                              ><i class="fa-solid fa-chevron-down"></i
+                            ></span>
+                          </span>
+                        </a>
+
+                        <ul
+                          class="group-hover:block hidden absolute dropdown left-0 top-full z-30 bg-white submenu shadow"
+                        >
+                          <li>
+                            <a
+                              href=""
+                              class="hover:text-white text-f15 inline-block py-[10px] px-[15px] hover:bg-Pimary_color w-full"
+                              >TEAM BUILDING DOANH NGHIỆP</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href=""
+                              class="hover:text-white text-f15 inline-block py-[10px] px-[15px] hover:bg-Pimary_color w-full"
+                              >TEAM BUILDING DOANH NGHIỆP</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href=""
+                              class="hover:text-white text-f15 inline-block py-[10px] px-[15px] hover:bg-Pimary_color w-full"
+                              >TEAM BUILDING DOANH NGHIỆP</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href=""
+                              class="hover:text-white text-f15 inline-block py-[10px] px-[15px] hover:bg-Pimary_color w-full"
+                              >TEAM BUILDING DOANH NGHIỆP</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="group relative">
+                        <a
+                          href=""
+                          class="inline-block px-[5px] lg:px-[8px] py-[10px] text-f15 transition-all hover:text-Pimary_color uppercase"
+                        >
+                          Xây Dựng
+                        </a>
+                      </li>
+                      <li class="group relative">
+                        <a
+                          href=""
+                          class="inline-block px-[5px] lg:px-[8px] py-[10px] text-f15 transition-all hover:text-Pimary_color uppercase"
+                        >
+                          Gia công
+                        </a>
+                      </li>
+                      <li class="group relative">
+                        <a
+                          href=""
+                          class="inline-block px-[5px] lg:px-[8px] py-[10px] text-f15 transition-all hover:text-Pimary_color uppercase"
+                        >
+                          Giải pháp
+                        </a>
+                      </li>
+                      <li class="group relative">
+                        <a
+                          href=""
+                          class="inline-block px-[5px] lg:px-[8px] py-[10px] text-f15 transition-all hover:text-Pimary_color uppercase"
+                        >
+                          Tin tức
+                        </a>
+                      </li>
+                      <li class="group relative">
+                        <a
+                          href=""
+                          class="inline-block px-[5px] lg:px-[8px] py-[10px] text-f15 transition-all hover:text-Pimary_color uppercase"
+                        >
+                          Dự án
+                        </a>
+                      </li>
+                      <li class="group relative">
+                        <a
+                          href=""
+                          class="inline-block px-[5px] lg:px-[8px] py-[10px] text-f15 transition-all hover:text-Pimary_color uppercase"
+                        >
+                          Liên hệ
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="banner">
+                  <div class="slider-home owl-carousel">
+                    <div class="item">
+                      <a href=""><img src="img/banner.png" alt="" /></a>
+                    </div>
+                    <div class="item">
+                      <a href=""><img src="img/banner.png" alt="" /></a>
+                    </div>
+                    <div class="item">
+                      <a href=""><img src="img/banner.png" alt="" /></a>
+                    </div>
+                    <div class="item">
+                      <a href=""><img src="img/banner.png" alt="" /></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="content-new-detail mt-[30px] bg-white p-[10px]">
+                  <h1 class="text-f20 font-bold">
+                    ‘’Dịch chuyển‘’ suy nghĩ về môi trường làm việc trong các
+                    nhà xưởng công nghiệp thời đại 4.0
+                  </h1>
+                  <p class="date text-gray-600 my-[10px]">
+                    Ngày đăng: 20-10-2020
+                  </p>
+                  <div class="content-content">
+                    <p>
+                      Xác định mục tiêu là nâng tầm các khu vực phụ trợ trong
+                      nhà máy như: Khu vực văn phòng,xưởng sản xuất, khu
+                      canteen, pantry hay showroom. Sumitech cũng định hướng
+                      phát triển Công ty toàn diện về sản phẩm lẫn dịch vụ,
+                      SUMITECH đã ứng dụng những công nghệ mới nhất, triển khai
+                      lắp đặt hệ thống Smart building và Smart city. Đồng thời
+                      kết hợp công nghệ IoT vào các hạng mục xây dựng, lắp đặt
+                      hệ thống cơ điện trong nhà xưởng, có thể kể đến như:
+                    </p>
+                    <p>
+                      Xác định mục tiêu là nâng tầm các khu vực phụ trợ trong
+                      nhà máy như: Khu vực văn phòng,xưởng sản xuất, khu
+                      canteen, pantry hay showroom. Sumitech cũng định hướng
+                      phát triển Công ty toàn diện về sản phẩm lẫn dịch vụ,
+                      SUMITECH đã ứng dụng những công nghệ mới nhất, triển khai
+                      lắp đặt hệ thống Smart building và Smart city. Đồng thời
+                      kết hợp công nghệ IoT vào các hạng mục xây dựng, lắp đặt
+                      hệ thống cơ điện trong nhà xưởng, có thể kể đến như:
+                    </p>
+                    <p>
+                      Xác định mục tiêu là nâng tầm các khu vực phụ trợ trong
+                      nhà máy như: Khu vực văn phòng,xưởng sản xuất, khu
+                      canteen, pantry hay showroom. Sumitech cũng định hướng
+                      phát triển Công ty toàn diện về sản phẩm lẫn dịch vụ,
+                      SUMITECH đã ứng dụng những công nghệ mới nhất, triển khai
+                      lắp đặt hệ thống Smart building và Smart city. Đồng thời
+                      kết hợp công nghệ IoT vào các hạng mục xây dựng, lắp đặt
+                      hệ thống cơ điện trong nhà xưởng, có thể kể đến như:
+                    </p>
+                    <p>
+                      Xác định mục tiêu là nâng tầm các khu vực phụ trợ trong
+                      nhà máy như: Khu vực văn phòng,xưởng sản xuất, khu
+                      canteen, pantry hay showroom. Sumitech cũng định hướng
+                      phát triển Công ty toàn diện về sản phẩm lẫn dịch vụ,
+                      SUMITECH đã ứng dụng những công nghệ mới nhất, triển khai
+                      lắp đặt hệ thống Smart building và Smart city. Đồng thời
+                      kết hợp công nghệ IoT vào các hạng mục xây dựng, lắp đặt
+                      hệ thống cơ điện trong nhà xưởng, có thể kể đến như:
+                    </p>
+                  </div>
+                  <div class="other-new pt-[30px]">
+                    <div class="title-title bg-Pimary_color py-[8px] px-[15px]">
+                      <a href="" class="text-white font-bold">BÀI VIẾT LIÊN QUAN</a>
+                    </div>
+                    <div class="slider-new owl-carousel mt-[20px]">
+                      <div
+                        class="item border border-gray-300 mb-[15px] md:mb-[20px]"
+                      >
+                        <div class="img hover-zoom">
+                          <a href="">
+                            <img
+                              src="img/img-7.png"
+                              alt=""
+                              class="w-full object-cover"
+                            />
+                          </a>
+                        </div>
+                        <div class="p-[15px]">
+                          <h3
+                            class="text-f15 font-bold overflow-hidden"
+                            style="
+                              text-overflow: ellipsis;
+                              line-height: 20px;
+                              -webkit-line-clamp: 2;
+                              height: 40px;
+                              display: -webkit-box;
+                              -webkit-box-orient: vertical;
+                            "
+                          >
+                            <a href="" class="hover:text-Pimary_color transition-all">
+                              Ca sĩ Võ Hạ Trâm mách nước dùng Yoosun Rau má đánh
+                              bay rôm sảy, mẩn ngứa cho con</a
+                            >
+                          </h3>
+                          <ul
+                            class="admin-date flex flex-wrap text-gray-500 my-[10px]"
+                          >
+                            <li class="mr-[10px]">
+                              <span class="mr-[5px]"
+                                ><i class="fa-solid fa-user"></i></span
+                              >Mai phương
+                            </li>
+                            <li>
+                              <span class="mr-[5px]"
+                                ><i class="fa-solid fa-calendar-days"></i></span
+                              >Mai phương
+                            </li>
+                          </ul>
+                          <p
+                            class="article-desc overflow-hidden"
+                            style="
+                              text-overflow: ellipsis;
+                              line-height: 20px;
+                              -webkit-line-clamp: 3;
+                              height: 60px;
+                              display: -webkit-box;
+                              -webkit-box-orient: vertical;
+                            "
+                          >
+                            BÁNH TRUNG THU NGUYỆT DẠ YẾN – TINH HOA TỤ NGUYỆTBí
+                            mật “Nguyệt Dạ Yến”Tương truyền, vào đêm trăng Rằm
+                            sáng tỏ xuất hiện một đôi chim yến thân phát...
+                          </p>
+                          <a
+                            href=""
+                            class="readmore bg-Pimary_color py-[6px] px-[13px] text-white rounded-[5px] mt-[10px] inline-block border border-Pimary_color transition-all hover:text-Pimary_color hover:bg-white"
+                            >Xem thêm<i
+                              class="fa-solid fa-angles-right text-f10 ml-[5px]"
+                            ></i
+                          ></a>
+                        </div>
+                      </div>
+                      <div
+                      class="item border border-gray-300 mb-[15px] md:mb-[20px]"
+                    >
+                      <div class="img hover-zoom">
+                        <a href="">
+                          <img
+                            src="img/img-7.png"
+                            alt=""
+                            class="w-full object-cover"
+                          />
+                        </a>
+                      </div>
+                      <div class="p-[15px]">
+                        <h3
+                          class="text-f15 font-bold overflow-hidden"
+                          style="
+                            text-overflow: ellipsis;
+                            line-height: 20px;
+                            -webkit-line-clamp: 2;
+                            height: 40px;
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                          "
+                        >
+                          <a href="" class="hover:text-Pimary_color transition-all">
+                            Ca sĩ Võ Hạ Trâm mách nước dùng Yoosun Rau má đánh
+                            bay rôm sảy, mẩn ngứa cho con</a
+                          >
+                        </h3>
+                        <ul
+                          class="admin-date flex flex-wrap text-gray-500 my-[10px]"
+                        >
+                          <li class="mr-[10px]">
+                            <span class="mr-[5px]"
+                              ><i class="fa-solid fa-user"></i></span
+                            >Mai phương
+                          </li>
+                          <li>
+                            <span class="mr-[5px]"
+                              ><i class="fa-solid fa-calendar-days"></i></span
+                            >Mai phương
+                          </li>
+                        </ul>
+                        <p
+                          class="article-desc overflow-hidden"
+                          style="
+                            text-overflow: ellipsis;
+                            line-height: 20px;
+                            -webkit-line-clamp: 3;
+                            height: 60px;
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                          "
+                        >
+                          BÁNH TRUNG THU NGUYỆT DẠ YẾN – TINH HOA TỤ NGUYỆTBí
+                          mật “Nguyệt Dạ Yến”Tương truyền, vào đêm trăng Rằm
+                          sáng tỏ xuất hiện một đôi chim yến thân phát...
+                        </p>
+                        <a
+                          href=""
+                          class="readmore bg-Pimary_color py-[6px] px-[13px] text-white rounded-[5px] mt-[10px] inline-block border border-Pimary_color transition-all hover:text-Pimary_color hover:bg-white"
+                          >Xem thêm<i
+                            class="fa-solid fa-angles-right text-f10 ml-[5px]"
+                          ></i
+                        ></a>
+                      </div>
+                    </div>
+                    <div
+                    class="item border border-gray-300 mb-[15px] md:mb-[20px]"
+                  >
+                    <div class="img hover-zoom">
+                      <a href="">
+                        <img
+                          src="img/img-7.png"
+                          alt=""
+                          class="w-full object-cover"
+                        />
+                      </a>
+                    </div>
+                    <div class="p-[15px]">
+                      <h3
+                        class="text-f15 font-bold overflow-hidden"
+                        style="
+                          text-overflow: ellipsis;
+                          line-height: 20px;
+                          -webkit-line-clamp: 2;
+                          height: 40px;
+                          display: -webkit-box;
+                          -webkit-box-orient: vertical;
+                        "
+                      >
+                        <a href="" class="hover:text-Pimary_color transition-all">
+                          Ca sĩ Võ Hạ Trâm mách nước dùng Yoosun Rau má đánh
+                          bay rôm sảy, mẩn ngứa cho con</a
+                        >
+                      </h3>
+                      <ul
+                        class="admin-date flex flex-wrap text-gray-500 my-[10px]"
+                      >
+                        <li class="mr-[10px]">
+                          <span class="mr-[5px]"
+                            ><i class="fa-solid fa-user"></i></span
+                          >Mai phương
+                        </li>
+                        <li>
+                          <span class="mr-[5px]"
+                            ><i class="fa-solid fa-calendar-days"></i></span
+                          >Mai phương
+                        </li>
+                      </ul>
+                      <p
+                        class="article-desc overflow-hidden"
+                        style="
+                          text-overflow: ellipsis;
+                          line-height: 20px;
+                          -webkit-line-clamp: 3;
+                          height: 60px;
+                          display: -webkit-box;
+                          -webkit-box-orient: vertical;
+                        "
+                      >
+                        BÁNH TRUNG THU NGUYỆT DẠ YẾN – TINH HOA TỤ NGUYỆTBí
+                        mật “Nguyệt Dạ Yến”Tương truyền, vào đêm trăng Rằm
+                        sáng tỏ xuất hiện một đôi chim yến thân phát...
+                      </p>
+                      <a
+                        href=""
+                        class="readmore bg-Pimary_color py-[6px] px-[13px] text-white rounded-[5px] mt-[10px] inline-block border border-Pimary_color transition-all hover:text-Pimary_color hover:bg-white"
+                        >Xem thêm<i
+                          class="fa-solid fa-angles-right text-f10 ml-[5px]"
+                        ></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div
+                  class="item border border-gray-300 mb-[15px] md:mb-[20px]"
+                >
+                  <div class="img hover-zoom">
+                    <a href="">
+                      <img
+                        src="img/img-7.png"
+                        alt=""
+                        class="w-full object-cover"
+                      />
+                    </a>
+                  </div>
+                  <div class="p-[15px]">
+                    <h3
+                      class="text-f15 font-bold overflow-hidden"
+                      style="
+                        text-overflow: ellipsis;
+                        line-height: 20px;
+                        -webkit-line-clamp: 2;
+                        height: 40px;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                      "
+                    >
+                      <a href="" class="hover:text-Pimary_color transition-all">
+                        Ca sĩ Võ Hạ Trâm mách nước dùng Yoosun Rau má đánh
+                        bay rôm sảy, mẩn ngứa cho con</a
+                      >
+                    </h3>
+                    <ul
+                      class="admin-date flex flex-wrap text-gray-500 my-[10px]"
+                    >
+                      <li class="mr-[10px]">
+                        <span class="mr-[5px]"
+                          ><i class="fa-solid fa-user"></i></span
+                        >Mai phương
+                      </li>
+                      <li>
+                        <span class="mr-[5px]"
+                          ><i class="fa-solid fa-calendar-days"></i></span
+                        >Mai phương
+                      </li>
+                    </ul>
+                    <p
+                      class="article-desc overflow-hidden"
+                      style="
+                        text-overflow: ellipsis;
+                        line-height: 20px;
+                        -webkit-line-clamp: 3;
+                        height: 60px;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                      "
+                    >
+                      BÁNH TRUNG THU NGUYỆT DẠ YẾN – TINH HOA TỤ NGUYỆTBí
+                      mật “Nguyệt Dạ Yến”Tương truyền, vào đêm trăng Rằm
+                      sáng tỏ xuất hiện một đôi chim yến thân phát...
+                    </p>
+                    <a
+                      href=""
+                      class="readmore bg-Pimary_color py-[6px] px-[13px] text-white rounded-[5px] mt-[10px] inline-block border border-Pimary_color transition-all hover:text-Pimary_color hover:bg-white"
+                      >Xem thêm<i
+                        class="fa-solid fa-angles-right text-f10 ml-[5px]"
+                      ></i
+                    ></a>
+                  </div>
+                </div>
+                <div
+                class="item border border-gray-300 mb-[15px] md:mb-[20px]"
+              >
+                <div class="img hover-zoom">
+                  <a href="">
+                    <img
+                      src="img/img-7.png"
+                      alt=""
+                      class="w-full object-cover"
+                    />
+                  </a>
+                </div>
+                <div class="p-[15px]">
+                  <h3
+                    class="text-f15 font-bold overflow-hidden"
+                    style="
+                      text-overflow: ellipsis;
+                      line-height: 20px;
+                      -webkit-line-clamp: 2;
+                      height: 40px;
+                      display: -webkit-box;
+                      -webkit-box-orient: vertical;
+                    "
+                  >
+                    <a href="" class="hover:text-Pimary_color transition-all">
+                      Ca sĩ Võ Hạ Trâm mách nước dùng Yoosun Rau má đánh
+                      bay rôm sảy, mẩn ngứa cho con</a
+                    >
+                  </h3>
+                  <ul
+                    class="admin-date flex flex-wrap text-gray-500 my-[10px]"
+                  >
+                    <li class="mr-[10px]">
+                      <span class="mr-[5px]"
+                        ><i class="fa-solid fa-user"></i></span
+                      >Mai phương
+                    </li>
+                    <li>
+                      <span class="mr-[5px]"
+                        ><i class="fa-solid fa-calendar-days"></i></span
+                      >Mai phương
+                    </li>
+                  </ul>
+                  <p
+                    class="article-desc overflow-hidden"
+                    style="
+                      text-overflow: ellipsis;
+                      line-height: 20px;
+                      -webkit-line-clamp: 3;
+                      height: 60px;
+                      display: -webkit-box;
+                      -webkit-box-orient: vertical;
+                    "
+                  >
+                    BÁNH TRUNG THU NGUYỆT DẠ YẾN – TINH HOA TỤ NGUYỆTBí
+                    mật “Nguyệt Dạ Yến”Tương truyền, vào đêm trăng Rằm
+                    sáng tỏ xuất hiện một đôi chim yến thân phát...
+                  </p>
+                  <a
+                    href=""
+                    class="readmore bg-Pimary_color py-[6px] px-[13px] text-white rounded-[5px] mt-[10px] inline-block border border-Pimary_color transition-all hover:text-Pimary_color hover:bg-white"
+                    >Xem thêm<i
+                      class="fa-solid fa-angles-right text-f10 ml-[5px]"
+                    ></i
+                  ></a>
+                </div>
+              </div>
+                    </div>
+                  </div>
+                 
+                </div>
+                <footer class="footer bg-white mt-0 md:mt-[30px]">
+                  <div class="top-footer p-[10px] border-b border-gray-100">
+                    <div
+                      class="flex flex-wrap justify-between mx-[-10px] items-center"
+                    >
+                      <div class="w-full md:w-1/2 px-[10px] mb-[10px] md:mb-0">
+                        <p class="flex flex-wrap">
+                          <span class=""
+                            ><img src="img/icon-1.png" alt="" />
+                          </span>
+                          <span class="pl-[10px]"
+                            >Đặt online <strong>giao tận nhà ĐÚNG GIỜ</strong>
+                            <br />
+                            (nếu trễ tặng PMH 50.000₫)</span
+                          >
+                        </p>
+                      </div>
+                      <div class="w-full md:w-1/2 px-[10px]">
+                        <p class="flex flex-wrap">
+                          <span class=""
+                            ><img src="img/iocn-2.png" alt="" />
+                          </span>
+                          <span class="pl-[10px]"
+                            >Đổi, trả sản phẩm <strong>trong 7 ngày</strong>
+                            <br />
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="content-footer p-[10px]">
+                    <div class="flex flex-wrap justify-between mx-[-10px]">
+                      <div class="w-full md:w-1/2 px-[10px]">
+                        <p class="phone text-Pimary_color font-bold">
+                          <i class="fa-solid fa-phone mr-[5px]"></i>Tổng đài:
+                          1900.1908 - 028.3622.9900 (7:00 - 21:30)
+                        </p>
+                        <div
+                          class="flex flex-wrap justify-between mx-[-5px] mt-[10px]"
+                        >
+                          <div class="w-1/2 md:w-1/3 px-[5px]">
+                            <ul>
+                              <li class="text-f15 text-gray-700 mb-[7px]">
+                                <a href="">Quy chế hoạt động</a>
+                              </li>
+                              <li class="text-f15 text-gray-700 mb-[7px]">
+                                <a href="">Hướng dẫn mua hàng</a>
+                              </li>
+                              <li class="text-f15 text-gray-700 mb-[7px]">
+                                <a href="">Hóa đơn điện tử</a>
+                              </li>
+                              <li class="text-f15 text-gray-700 mb-[7px]">
+                                <a href="">Quy chế hoạt động</a>
+                              </li>
+                              <li class="text-f15 text-gray-700 mb-[7px]">
+                                <a href="">Hướng dẫn mua hàng</a>
+                              </li>
+                              <li class="text-f15 text-gray-700 mb-[7px]">
+                                <a href="">Hóa đơn điện tử</a>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="w-1/2 md:w-1/3 px-[5px]">
+                            <ul>
+                              <li class="text-f15 text-gray-700 mb-[7px]">
+                                <a href="">Quy chế hoạt động</a>
+                              </li>
+                              <li class="text-f15 text-gray-700 mb-[7px]">
+                                <a href="">Hướng dẫn mua hàng</a>
+                              </li>
+                              <li class="text-f15 text-gray-700 mb-[7px]">
+                                <a href="">Hóa đơn điện tử</a>
+                              </li>
+                              <li class="text-f15 text-gray-700 mb-[7px]">
+                                <a href="">Quy chế hoạt động</a>
+                              </li>
+                              <li class="text-f15 text-gray-700 mb-[7px]">
+                                <a href="">Hướng dẫn mua hàng</a>
+                              </li>
+                              <li class="text-f15 text-gray-700 mb-[7px]">
+                                <a href="">Hóa đơn điện tử</a>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="w-1/2 md:w-1/3 px-[5px]">
+                            <ul>
+                              <li class="text-f15 text-gray-700 mb-[7px]">
+                                <a href="">Quy chế hoạt động</a>
+                              </li>
+                              <li class="text-f15 text-gray-700 mb-[7px]">
+                                <a href="">Hướng dẫn mua hàng</a>
+                              </li>
+                              <li class="text-f15 text-gray-700 mb-[7px]">
+                                <a href="">Hóa đơn điện tử</a>
+                              </li>
+                              <li class="text-f15 text-gray-700 mb-[7px]">
+                                <a href="">Quy chế hoạt động</a>
+                              </li>
+                              <li class="text-f15 text-gray-700 mb-[7px]">
+                                <a href="">Hướng dẫn mua hàng</a>
+                              </li>
+                              <li class="text-f15 text-gray-700 mb-[7px]">
+                                <a href="">Hóa đơn điện tử</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="w-full md:w-1/2 px-[10px] mt-[10px] md:mt-0">
+                        <h3 class="text-f16 font-bold uppercase mb-[7px]">
+                          Công ty trách nhiệm cổ phần việt nam
+                        </h3>
+                        <p class="mb-[5px]">
+                          <i class="fa-solid fa-location-dot mr-[5px]"></i>Số
+                          38, Ngõ 6 , Vĩnh phúc, Ba Đình, Hà Nội
+                        </p>
+                        <p>
+                          <i class="fa-solid fa-phone mr-[5px]"></i>0987 098
+                          8786 - 0987 098 789
+                        </p>
+                        <h4 class="text-f15 font-bold mt-[10px]">
+                          Hãy điền email nhận thông tin từ chúng tôi để k bỏ lỡ
+                          bất kỳ khuyến mãi hoặc tin tức nóng nhất
+                        </h4>
+                        <form action="" class="relative mt-[10px]">
+                          <input
+                            type="text"
+                            placeholder="Thông tin của bạn"
+                            class="w-full h-[40px] border border-gray-200 rounded-[5px] text-f15 bg-gray-50"
+                          />
+                          <button class="absolute top-[7px] right-[10px]">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                          </button>
+                        </form>
+                        <ul class="flex flex-wrap mt-[10px]">
+                          <li class="mr-[5px]"> <a href=""><img src="img/icon-2.png"></a></li>
+                          <li> <a href=""><img src="img/icon-3.png"></a></li>
+                        </ul>
+                        <div class="img mt-[10px]"> <img src="img/handle_cert.png" style="width: 150px;"> </div>
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+                <div class="copy-right bg-gray-200 p-[10px] text-center">
+                  <p class="text-f13">
+                    © 2018. Công Ty Cổ Phần Thương Mại Bách Hoá Xanh. GPDKKD:
+                    0310471746 do sở KH & ĐT TP.HCM cấp ngày 23/11/2010. Giấy
+                    phép thiết lập mạng xã hội trên mạng (Số 20/GP-BTTTT) do Bộ
+                    Thông Tin Và Truyền Thông cấp ngày 11/01/2021. Trụ sở chính:
+                    128 Trần Quang Khải, P.Tân Định, Quận.1, TP.HCM. Địa chỉ
+                    liên hệ: Toà nhà MWG, Lô T2-1.2, Đường D1, Khu Công Nghệ
+                    Cao, P. Tân Phú, TP.Thủ Đức, TP.HCM.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- start: Footer -->
+
+    <div class="support-online">
+      <div class="support-content" style="display: none">
+        <a href="tel:0989949123" class="call-now" rel="nofollow">
+          <i class="fa-solid fa-mobile-retro"></i>
+          <div class="animated infinite zoomIn kenit-alo-circle"></div>
+          <div class="animated infinite pulse kenit-alo-circle-fill"></div>
+          <span>Gọi ngay: 0989949123</span>
+        </a>
+        <a class="mes" href="">
+          <i class="fa-brands fa-facebook-f"></i>
+          <span>Nhắn tin facebook</span>
+        </a>
+        <a class="zalo" href="">
+          <i class="fa-brands fa-rocketchat"></i>
+          <span>Zalo: 0989949123</span>
+        </a>
+        <a class="sms" href="sms:0989949123">
+          <i class="fa-solid fa-comment-sms"></i>
+          <span>SMS: 0989949123</span>
+        </a>
+      </div>
+      <a class="btn-support">
+        <i class="fa-solid fa-user"></i>
+        <div class="animated infinite zoomIn kenit-alo-circle"></div>
+        <div class="animated infinite pulse kenit-alo-circle-fill"></div>
+      </a>
+    </div>
+    <div id="scrollUp"><i class="fa fa-angle-up"></i></div>
+
+    <div
+      class="fixed z-10 overflow-y-auto top-0 w-full left-0 hidden"
+      id="modal"
+    >
+      <div
+        class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+      >
+        <div class="fixed inset-0 transition-opacity">
+          <div class="absolute inset-0 bg-gray-900 opacity-75"></div>
+          <span class="hidden sm:inline-block sm:align-middle sm:h-screen"
+            >&#8203;</span
+          >
+          <div
+            class="p-[50px] relative inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-headline"
+          >
+            <button
+              type="button"
+              class="bg-gray-500 text-white rounded absolute top-0 right-0 w-[30px] h-[30px] text-center leading-[30px]"
+              onclick="toggleModal()"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+            <div
+              class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 text-center text-f20 md:text-f40 font-bold"
+            >
+              <p>
+                Soạn: <span class="text-Pimary_color">ST150K 386323669 </span> gửi<span
+                  class="text-Pimary_color"
+                >
+                  9123</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  end: Footer -->
+  </body>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+
+  <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>
+  <script src="https://unpkg.com/flowbite@1.5.2/dist/datepicker.js"></script>
+
+  <script src="js/main.js"></script>
+  <script>
+    //hieu ung wow------------------------------------------
+    wow = new WOW({
+      animateClass: "animated",
+      offset: 100,
+      callback: function (box) {
+        console.log("WOW: animating <" + box.tagName.toLowerCase() + ">");
+      },
+    });
+    wow.init();
+  </script>
+</html>

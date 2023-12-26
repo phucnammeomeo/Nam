@@ -1,0 +1,25 @@
+
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url('Montserrat-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src: url('Montserrat-Bold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat-Black';
+  src: url('Montserrat-Black.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DroidSerif-Regular';
+  src: url('DroidSerif-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
